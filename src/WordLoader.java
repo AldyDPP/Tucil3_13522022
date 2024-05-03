@@ -10,25 +10,6 @@ public class WordLoader {
         filename = _filename;
     }
 
-    public HashSet<String> load() throws FileNotFoundException {
-        
-        File file = new File(filename);
-
-        Scanner scanner = new Scanner(file);
-
-        HashSet<String> dictionary = new HashSet<String>();
-
-        while (scanner.hasNextLine()) {
-            String word = scanner.nextLine();
-            dictionary.add(word);
-        }
-
-        scanner.close();
-        
-        return dictionary;
-
-    }
-
     public Trie loadTrie() throws FileNotFoundException {
         
         File file = new File(filename);

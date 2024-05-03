@@ -2,6 +2,7 @@ package src;
 // TRIE DATA STRUCTURE
 // Used for determining existence of a word in a dictionary in O(s.length) time
 // Creating the trie from the dictionary takes O(sum(s.length)) time
+// Preferred over hashset because collisions aren't a thing, drawback being that space is upperbounded on O(26^(max word length)) as opposed to O(word count)
 
 class TrieNode {
     public char val;
