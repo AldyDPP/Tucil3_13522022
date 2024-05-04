@@ -35,25 +35,25 @@ public class Main {
                 check1 = trie.exists(s1);
                 check2 = trie.exists(s2);
             } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println("Letters please, not numbers/symbols.");
+                System.out.println("You should input english words correctly, do not use numbers/symbols.");
                 continue;
             }
 
             if (!check1) {
-                System.out.println("Word 1 is not a thing");
+                System.out.println("Couldn't find word 1 in dictionary.");
                 continue;
             }
             
             if (!check2) {
-                System.out.println("Word 2 is not a thing");
+                System.out.println("Couldn't find word 2 in dictionary.");
                 continue;
             }
             
             if (s1.length() != s2.length()) {
-                System.out.println("Lengths are different");
+                System.out.println("You should input same length words.");
                 continue;
             }
-            
+
             long startTime = System.nanoTime();
             try {
                 
@@ -69,7 +69,7 @@ public class Main {
                     ans = gbfs.solve(s1, s2);
                 }
                 else {
-                    throw new Exception("Input correctly pls...");
+                    throw new Exception("That is not the correct name of an algorithm. Please input \"UCS\", \"ASTAR\", or \"GBFS\" as the third input string (case insensitive).");
                 }
                 
                 long stopTime = System.nanoTime();
