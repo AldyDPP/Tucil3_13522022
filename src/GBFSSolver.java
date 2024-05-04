@@ -13,10 +13,10 @@ class GBFSComp implements Comparator<String> {
         int ans2 = 0;
         int l = endstr.length();
         for (int i = 0; i < l; i++) {
-            if (endstr.charAt(i) == str1.charAt(i)) ans1++;
-            if (endstr.charAt(i) == str2.charAt(i)) ans2++;
+            if (endstr.charAt(i) != str1.charAt(i)) ans1++;
+            if (endstr.charAt(i) != str2.charAt(i)) ans2++;
         }
-        return ans2 - ans1; // Java Prioqueue has ascending priority
+        return ans1 - ans2;
     }
 }
 

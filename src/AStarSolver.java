@@ -28,17 +28,20 @@ class AStarComp implements Comparator<StringDepth> {
 
     public int compare(StringDepth obj1, StringDepth obj2) {
 
-        int ans1 = -obj1.getDepth();
-        int ans2 = -obj2.getDepth();
+        int depth1 = obj1.getDepth();
+        int depth2 = obj2.getDepth();
+        int ans1 = depth1;
+        int ans2 = depth2;
         String str1 = obj1.getStr();
         String str2 = obj2.getStr();
 
         int l = endstr.length();
         for (int i = 0; i < l; i++) {
-            if (endstr.charAt(i) == str1.charAt(i)) ans1++;
-            if (endstr.charAt(i) == str2.charAt(i)) ans2++;
+            if (endstr.charAt(i) != str1.charAt(i)) ans1++;
+            if (endstr.charAt(i) != str2.charAt(i)) ans2++;
         }
-        return ans2 - ans1;
+        if (ans1 == ans2) return depth1 - depth2; 
+        return ans1  - ans2;
 
     }
 }
