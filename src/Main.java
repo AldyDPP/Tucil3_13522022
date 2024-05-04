@@ -39,13 +39,13 @@ public class Main {
         System.out.println("Dictionary successfully loaded. The program is now running. Input \"/help\" to get a link to the use guide.");
         while (true) {
             
-
+            System.out.printf(">> ");
             s1 = sc.next();
             s1 = s1.toLowerCase();
             
             if (s1.equals("/quit")) break;
             if (s1.equals("/help")) {
-                System.out.println();
+                System.out.println("");
                 sc.nextLine();
                 continue;
             }
