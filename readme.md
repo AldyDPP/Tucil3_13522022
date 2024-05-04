@@ -38,6 +38,10 @@ If you want, you can recompile the `.java` files. These are of course located in
 ```
 javac *.java -d ../bin
 ```
+Lastly, if you, for whatever reason, want to rebuild the JAR file, then you can do that by doing (from `bin` folder)
+```
+jar cvmf MANIFEST.MF app.jar *
+```
 
 # How To Use
 

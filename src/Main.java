@@ -45,7 +45,7 @@ public class Main {
             
             if (s1.equals("/quit")) break;
             if (s1.equals("/help")) {
-                System.out.println("");
+                System.out.println("https://github.com/AldyDPP/Tucil3_13522022?tab=readme-ov-file#how-to-use");
                 sc.nextLine();
                 continue;
             }
@@ -94,7 +94,7 @@ public class Main {
                     ans = gbfs.solve(s1, s2);
                 }
                 else {
-                    throw new Exception("That is not the correct name of an algorithm. Please input \"UCS\", \"ASTAR\", or \"GBFS\" as the third input string (case insensitive).");
+                    throw new Exception("Algorithm name is incorrect. Please input \"UCS\", \"ASTAR\", or \"GBFS\" as the third input string (case insensitive).");
                 }
                 
                 long stopTime = System.nanoTime();
