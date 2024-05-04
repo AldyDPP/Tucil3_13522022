@@ -4,20 +4,39 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
-
+    public static void main(String[] args) {
+        
+        
         WordLoader wl = new WordLoader("words.txt");
-        Solver ucs = new UCSSolver();
-        Solver astar = new AStarSolver();
-        Solver gbfs = new GBFSSolver();
+        Solver ucs, astar, gbfs;
+        Trie trie;
+        
+        System.out.println("Attempting to load dictionary... (this process shouldn't take more than a few seconds)");
 
-        Trie trie = wl.loadTrie();
-        ucs.setTrie(trie);
-        astar.setTrie(trie);
-        gbfs.setTrie(trie);
+        try {
+            ucs = new UCSSolver();
+            astar = new AStarSolver();
+            gbfs = new GBFSSolver();
+
+            trie = wl.loadTrie();
+            ucs.setTrie(trie);
+            astar.setTrie(trie);
+            gbfs.setTrie(trie);
+
+        } catch (FileNotFoundException f) {
+            System.out.println("Dictionary load failed, \"words.txt\" file not found. Perhaps it has been moved somewhere?");
+            System.out.println("Exiting program.");
+            return;
+        } catch (Exception e) {
+            System.out.println("Dictionary load failed, unknown error occured.");
+            System.out.println("Exiting program.");
+            return;
+        }
 
         Scanner sc = new Scanner(System.in);
         String s1, s2, alg;
+
+        System.out.println("Dictionary successfully loaded. The program is now running. Input \"/help\" to get a link to the use guide.");
         while (true) {
             
 
@@ -25,7 +44,11 @@ public class Main {
             s1 = s1.toLowerCase();
             
             if (s1.equals("/quit")) break;
-            if (s1.equals("/help")) continue; // print help message then continue
+            if (s1.equals("/help")) {
+                System.out.println();
+                sc.nextLine();
+                continue;
+            }
 
             s2 = sc.next();
             s2 = s2.toLowerCase();
@@ -98,5 +121,6 @@ public class Main {
             }
 
         }
+        sc.close();
     }
 }
