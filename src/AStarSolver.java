@@ -38,7 +38,7 @@ class AStarComp implements Comparator<StringDepth> {
             if (endstr.charAt(i) == str1.charAt(i)) ans1++;
             if (endstr.charAt(i) == str2.charAt(i)) ans2++;
         }
-        return ans2  - ans1;
+        return ans2 - ans1;
 
     }
 }

@@ -17,32 +17,61 @@ public class Main {
         gbfs.setTrie(trie);
 
         Scanner sc = new Scanner(System.in);
-        String s1, s2;
+        String s1, s2, alg;
         while (true) {
+            
 
             s1 = sc.next();
+            s1 = s1.toLowerCase();
             if (s1.equals("EXIT")) break;
-
             s2 = sc.next();
+            s2 = s2.toLowerCase();
+            alg = sc.next();
+            sc.nextLine();
 
-            if (s1.length() != s2.length()) {
-                System.out.println("Lengths are different");
+            
+            boolean check1,check2;
+            try {
+                check1 = trie.exists(s1);
+                check2 = trie.exists(s2);
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Letters please, not numbers/symbols.");
                 continue;
             }
-            if (!trie.exists(s1)) {
+
+            if (!check1) {
                 System.out.println("Word 1 is not a thing");
                 continue;
             }
             
-            if (!trie.exists(s2)) {
+            if (!check2) {
                 System.out.println("Word 2 is not a thing");
                 continue;
             }
-
+            
+            if (s1.length() != s2.length()) {
+                System.out.println("Lengths are different");
+                continue;
+            }
+            
             long startTime = System.nanoTime();
             try {
                 
-                ArrayList<String> ans = ucs.solve(s1, s2);
+                ArrayList<String> ans;
+                
+                if (alg.compareToIgnoreCase("ucs") == 0) {
+                    ans = ucs.solve(s1, s2);
+                }
+                else if (alg.compareToIgnoreCase("astar") == 0) {
+                    ans = astar.solve(s1, s2);
+                }
+                else if (alg.compareToIgnoreCase("gbfs") == 0) {
+                    ans = gbfs.solve(s1, s2);
+                }
+                else {
+                    throw new Exception("Input correctly pls...");
+                }
+                
                 long stopTime = System.nanoTime();
 
 
@@ -67,6 +96,5 @@ public class Main {
             }
 
         }
-        sc.close();
     }
 }
