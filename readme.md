@@ -45,7 +45,7 @@ jar cvmf MANIFEST.MF app.jar *
 
 # How To Use
 
-1. The program will start by trying to load from `words.txt` file. Wait for it (this should last no more than a few sconds). The program will display a message once it has finished loading.
+1. The program will start by trying to load from `words.txt` file. Wait for it (this should last no more than a few seconds). The program will display a message once it has finished loading.
 
 2. Once running, the program will now continuously receive input, solve, and output the solution until you exit the program.
 3. To exit the program, type `/quit` (case sensitive).
