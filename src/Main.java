@@ -23,12 +23,14 @@ public class Main {
 
             s1 = sc.next();
             s1 = s1.toLowerCase();
-            if (s1.equals("EXIT")) break;
+            
+            if (s1.equals("/quit")) break;
+            if (s1.equals("/help")) continue; // print help message then continue
+
             s2 = sc.next();
             s2 = s2.toLowerCase();
             alg = sc.next();
             sc.nextLine();
-
             
             boolean check1,check2;
             try {
