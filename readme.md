@@ -1,7 +1,7 @@
 # Tugas Kecil 3 IF2211 Strategi Algoritma
 
 ## Project Description
-Students were given an assignment to write a small program in Java that solves the "word ladder" program using three algorithms: Uniform Complete Search, Greedy Best First Search, and A\* algorithm.
+Students were given an assignment to write a small program in Java that solves the "word ladder" game using three algorithms: Uniform Complete Search, Greedy Best First Search, and A\* algorithm.
 
 ## Requirements
 This program requires only Java to run. For Unix-like OS, do
