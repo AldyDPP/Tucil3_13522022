@@ -17,6 +17,7 @@ public class UCSSolver implements Solver {
         parentHashMap.put(startword, startword);
         queue.add(startword);
         boolean found = false;
+        Integer totalNodes = 0;
 
         while (!queue.isEmpty()) {
             
@@ -26,6 +27,7 @@ public class UCSSolver implements Solver {
                 found = true;
                 break;
             }
+            totalNodes++;
 
             for (int i = 0; i < l; ++i) {
 
@@ -55,6 +57,7 @@ public class UCSSolver implements Solver {
         
         path.add(startword);
         Collections.reverse(path);
+        path.add(totalNodes.toString());
 
         return path;
     }

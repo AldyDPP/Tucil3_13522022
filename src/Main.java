@@ -94,19 +94,21 @@ public class Main {
                     ans = gbfs.solve(s1, s2);
                 }
                 else {
-                    throw new Exception("Algorithm name is incorrect. Please input \"UCS\", \"ASTAR\", or \"GBFS\" as the third input string (case insensitive).");
+                    System.out.println("Algorithm name is incorrect. Please input \"UCS\", \"ASTAR\", or \"GBFS\" as the third input string (case insensitive).");
+                    continue;
                 }
                 
                 long stopTime = System.nanoTime();
 
 
                 System.out.println("\n----------");
-                for (int i = 0; i < ans.size(); ++i) {
+                for (int i = 0; i < ans.size() - 1; ++i) {
                     System.out.printf("%d. ", i + 1);
                     System.out.println(ans.get(i));
                 }
                 System.out.println("----------");
                 System.out.printf("Done! Execution time: %d ms\n", (stopTime - startTime) / 1000000);
+                System.out.printf("Total nodes visited: %s\n", ans.get(ans.size() - 1));
 
             } catch (OutOfMemoryError e) {
                 System.out.println(e.getMessage());

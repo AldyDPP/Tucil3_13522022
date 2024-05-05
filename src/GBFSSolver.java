@@ -31,7 +31,7 @@ public class GBFSSolver implements Solver {
         
         GBFSComp comp = new GBFSComp(endword);
         PriorityQueue<String> pq = new PriorityQueue<String>(comp);
-
+        Integer totalNodes = 0;
 
         HashMap<String, String> parentHashMap = new HashMap<String, String>();
         parentHashMap.put(startword, startword);
@@ -46,6 +46,7 @@ public class GBFSSolver implements Solver {
                 found = true;
                 break;
             }
+            totalNodes++;
 
             for (int i = 0; i < l; ++i) {
 
@@ -75,6 +76,7 @@ public class GBFSSolver implements Solver {
         
         path.add(startword);
         Collections.reverse(path);
+        path.add(totalNodes.toString());
 
         return path;
     }

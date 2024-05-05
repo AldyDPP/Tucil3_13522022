@@ -57,7 +57,7 @@ public class AStarSolver implements Solver {
 
         AStarComp comp = new AStarComp(endword);
         PriorityQueue<StringDepth> pq = new PriorityQueue<StringDepth>(comp);
-
+        Integer totalNodes = 0;
 
         HashMap<String, String> parentHashMap = new HashMap<String, String>();
         parentHashMap.put(startword, startword);
@@ -69,6 +69,7 @@ public class AStarSolver implements Solver {
             StringDepth obj = pq.poll();
             String currentstr = obj.getStr();
             int depth = obj.getDepth();
+            totalNodes++;
 
             int l = currentstr.length();
             if (currentstr.equals(endword)) {
@@ -104,7 +105,8 @@ public class AStarSolver implements Solver {
         
         path.add(startword);
         Collections.reverse(path);
-
+        path.add(totalNodes.toString());
+        
         return path;
     }
 }
