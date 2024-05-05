@@ -45,7 +45,7 @@ public class UCSSolver implements Solver {
         }
 
         if (!found) {
-            throw new Exception("Solution doesn't exist");
+            throw new Exception("Solution doesn't exist\nTotal nodes visited: " + totalNodes.toString());
         }
 
         ArrayList<String> path = new ArrayList<String>();
